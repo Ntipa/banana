@@ -173,7 +173,7 @@
     "hide": false
   },
   "solr": {
-    "server": "http://localhost:8983/solr/",
+    "server": "http://localhost:9000/solr/",
     "core_name": "bike-trip-geo"
   }
 }

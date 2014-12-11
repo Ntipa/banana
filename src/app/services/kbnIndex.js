@@ -30,7 +30,7 @@ function (angular, _, config, moment) {
     };
 
     // Solr: returns a promise containing an array of all collections in the Solr server.
-    // param: solr_server (e.g. http://localhost:8983/solr/)
+    // param: solr_server (e.g. http://localhost:9000/solr/)
     this.collections = function(solr_server) {
       return all_collections(solr_server).then(function (p) {
         return p;
@@ -38,7 +38,7 @@ function (angular, _, config, moment) {
     }
 
     // returns a promise containing an array of all collections in Solr
-    // param: solr_server (e.g. http://localhost:8983/solr/)
+    // param: solr_server (e.g. http://localhost:9000/solr/)
     function all_collections(solr_server) {
       var something = $http({
         // Use Solr Admin handler to get the list of all collections.
@@ -85,7 +85,7 @@ function (angular, _, config, moment) {
         // url: config.elasticsearch + "/_aliases",
         // url: config.solr + "/schema/fields",
         // NOTE: Hard-coded to start -10YEARS from NOW
-        url: config.solr + config.solr_core + "/select?q=*:*&wt=json&rows=0&omitHeader=true&facet=true&facet.range=event_timestamp&facet.range.start=NOW-10YEARS/DAY&facet.range.end=NOW&facet.range.gap=%2B1DAY&facet.mincount=1",
+        url: config.solr + config.solr_core + "/select?q=*:*&wt=json&rows=0&omitHeader=true&facet=true&facet.range=createdDate_dt&facet.range.start=NOW-10YEARS/DAY&facet.range.end=NOW&facet.range.gap=%2B1DAY&facet.mincount=1",
 
         method: "GET"
       }).error(function(data, status) {
@@ -112,7 +112,7 @@ function (angular, _, config, moment) {
       
         var indices = [];
 
-        var timestamp_array = p.data.facet_counts.facet_ranges.event_timestamp.counts;
+        var timestamp_array = p.data.facet_counts.facet_ranges.createdDate_dt.counts;
 
         for (var i=0; i < timestamp_array.length; i=i+2) {
           // extract and convert timestamp to YYYY.MM.DD

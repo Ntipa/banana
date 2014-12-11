@@ -47,7 +47,7 @@ function (angular, app, _, moment, kbn, $) {
       mode: "relative",
       time_options: ['5m', '15m', '1h', '6h', '12h', '24h', '2d', '7d', '30d'],
       timespan: '15m',
-      timefield: 'event_timestamp',
+      timefield: 'createdDate_dt',
       timeformat: "",
       spyable: true,
       refresh: {

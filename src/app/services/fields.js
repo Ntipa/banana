@@ -115,7 +115,7 @@ function (angular, _) {
         // });
         
         // mapping = {
-        //   'collection1': { => have to be in format: 'logstash-YYYY-MM-DD'
+        //   'ntipa': { => have to be in format: 'logstash-YYYY-MM-DD'
         //     'logs': {
         //       '_version_': {
         //         'type': 'long',

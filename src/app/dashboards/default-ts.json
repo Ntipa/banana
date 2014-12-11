@@ -76,7 +76,7 @@
             "5y"
           ],
           "timespan": "15m",
-          "timefield": "event_timestamp",
+          "timefield": "createdDate_dt",
           "timeformat": "",
           "refresh": {
             "enable": false,
@@ -164,7 +164,7 @@
           "type": "histogram",
           "loadingEditor": false,
           "mode": "count",
-          "time_field": "event_timestamp",
+          "time_field": "createdDate_dt",
           "queries": {
             "mode": "all",
             "ids": [
@@ -297,9 +297,9 @@
     "dropdown_collections": false
   },
   "solr": {
-    "server": "http://localhost:8983/solr/",
-    "core_name": "collection1",
+    "server": "http://localhost:9000/solr/",
+    "core_name": "ntipa",
     "core_list": [],
-    "global_params": "&df=message"
+    "global_params": "&df=text"
   }
 }
